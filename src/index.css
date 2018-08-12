@@ -1,0 +1,9 @@
+.hideable {
+  transition: opacity linear 0.33s;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
