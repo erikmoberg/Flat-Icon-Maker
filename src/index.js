@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import reactCSS from 'reactcss';
 import { ColorPicker } from './color-picker.js';
 import { IconsView } from './icons-view.js';
 import { IconPreview } from './icon-preview.js';
@@ -62,25 +63,41 @@ class IconMaker extends React.Component {
   }
 
   render() {
+
+    const styles = reactCSS({
+      'default': {
+        group: {
+          padding: '5px 0',
+        },
+      }
+    });
+
     return (
       <div>
         <div className="page-section">
 
           <IconsView onSelect={this.onSelectIcon} selectedIcon={this.state.selectedIcon} />
 
-          <div style={ { display: "flex", justifyContent: "space-between", flexWrap: "wrap-reverse" } }>
+          <div style={ { display: "flex", justifyContent: "space-between", flexWrap: "nowrap" } }>
             <div>
-              <h3>Icon Color</h3>
-              <ColorPicker color={this.state.color} colorChanged={this.onColorChanged} />
+              <div style={ styles.group }>
+                <h3>Icon Color</h3>
+                <ColorPicker color={this.state.color} colorChanged={this.onColorChanged} />
+              </div>
 
-              <h3>Background Shape</h3>
-              <BackgroundPicker backgroundChanged={this.onBackgroundChanged} backgroundColor={ this.state.backgroundColor } />
+              <div style={ styles.group }>
+                <h3>Background Shape</h3>
+                <BackgroundPicker backgroundChanged={this.onBackgroundChanged} backgroundColor={ this.state.backgroundColor } />
+                <input type="checkbox" id="add-padding" onChange={ this.onAddPaddingChanged } /><label htmlFor="add-padding" style={ { paddingLeft: "2px", display: "inline-block" } }>Add padding</label>
+              </div>
 
-              <input type="checkbox" id="add-padding" onChange={ this.onAddPaddingChanged } /><label htmlFor="add-padding" style={ { paddingLeft: "2px", marginBottom: "5px", display: "inline-block" } }>Add padding</label>
-
-              <h3>Background Color</h3>
-              <ColorPicker color={this.state.backgroundColor} colorChanged={this.onBackgroundColorChanged} />
+              <div style={ styles.group }>
+                <h3>Background Color</h3>
+                <ColorPicker color={this.state.backgroundColor} colorChanged={this.onBackgroundColorChanged} />
+              </div>
+              <div style={ styles.group }>
                 <DownloadView addPadding={ this.state.addPadding } color={ this.state.color } icon={ this.state.selectedIcon } selectedBackground={this.state.selectedBackground} ref={instance => { this.downloadView = instance; }} />
+              </div>
             </div>
 
             <div style={ { textAlign: "center" } }>

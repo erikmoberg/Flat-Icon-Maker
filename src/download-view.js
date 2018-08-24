@@ -92,6 +92,7 @@ export class DownloadView extends React.Component {
       'default': {
         button: {
           display: 'inline-block',
+          marginTop: '10px',
         },
         hidden: {
           display: 'none',
