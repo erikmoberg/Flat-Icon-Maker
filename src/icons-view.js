@@ -76,7 +76,7 @@ export class IconsView extends React.Component {
             );
           })}
         </div>
-        <div style={ styles.iconContainer }>
+        <div className="flat-icon-container" style={ styles.iconContainer }>
           {this.icons.map((icon, i) => {
             return (
               <svg className={ this.getClassName(icon.set, icon.title) } key={icon.set + icon.title} height="32" version="1.1" width="32" xmlns="http://www.w3.org/2000/svg" onClick={() => this.props.onSelect(icon)}>
