@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "downloadjs": "^1.4.7",
-    "react": "^16.4.0",
-    "react-color": "^2.14.1",
-    "react-dom": "^16.4.0",
+    "react": "^16.7.0",
+    "react-color": "^2.17.0",
+    "react-dom": "^16.7.0",
     "react-scripts": "1.1.4",
     "smoothscroll-polyfill": "^0.4.3"
   },
