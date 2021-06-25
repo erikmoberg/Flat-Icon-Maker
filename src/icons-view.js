@@ -56,6 +56,9 @@ export class IconsView extends React.Component {
         },
         iconSetLabel: {
           padding: '0 15px 0 2px',
+        },
+        symbolSetItem: {
+          display: 'block'
         }
       },
     });
@@ -65,11 +68,13 @@ export class IconsView extends React.Component {
         <input type="text" className="textinput" placeholder={ `Search ${this.icons.length} icons` } style={{ width: "240px" }} onChange={ this.changeSearchText } />
         <div style={ styles.symbolSetSelection } className="symbol-set-selection">
           <h4>Icon Set Filter</h4>
-          <input name="symbol-set-radio" type="radio" id="allSymbolSets" defaultChecked={ true } onChange={ () => this.changeSymbol(null) } />
-          <label style={ styles.iconSetLabel } htmlFor="allSymbolSets">All</label>
+          <span style={ styles.symbolSetItem }>
+            <input name="symbol-set-radio" type="radio" id="allSymbolSets" defaultChecked={ true } onChange={ () => this.changeSymbol(null) } />
+            <label style={ styles.iconSetLabel } htmlFor="allSymbolSets">All</label>
+          </span>
           {this.symbolSets.map((symbolSet, i) => {
             return (
-              <span key={ symbolSet }>
+              <span key={ symbolSet } style={ styles.symbolSetItem }>
                 <input name="symbol-set-radio" type="radio" id={ symbolSet + i } onChange={ () => this.changeSymbol(symbolSet) } />
                 <label style={ styles.iconSetLabel } htmlFor={ symbolSet + i }>{ symbolSet }</label>
               </span>
